@@ -1,0 +1,54 @@
+.banner {
+    position: relative;
+    z-index: 1;
+
+    &__text {
+
+        position: absolute;
+        text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
+
+        &--yellow {
+            top: 15%;
+            font-size: 4.5rem;
+            right: 10%;
+        }
+
+        &--red {
+            top: 28%;
+            font-size: 4rem;
+            right: 11%;
+        }
+
+
+    }
+}
+
+#choose-country {
+    margin-top: -8rem;
+    z-index: 2;
+    position: relative;
+}
+
+#initiatives {
+    .one-initiative {
+        &__img-container {
+            height: 280px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &__title {
+            margin-top: .75rem;
+
+            &:after {
+                content: url(../img/podkreslnik.png);
+                display: block;
+            }
+        }
+    }
+}
+
+#news {
+    margin-top: -4rem;
+    padding-top: 4rem;
+}

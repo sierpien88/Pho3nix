@@ -1,0 +1,77 @@
+body {
+    font-family: 'Roboto';
+    color: $primary;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 500;
+    background-color: $light-blue;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.secondary-font {
+    font-family: 'LuckiestGuy';
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: calc(2.5rem * 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+    box-sizing: padding-box;
+    background-color: rgba($primary, 1);
+    background-clip: padding-box;
+    border: 0 solid rgba($orange, 1);
+}
+
+::-webkit-scrollbar-track {
+    background-color: $orange;
+}
+
+.bg-orange {
+    background: url(../img/bg-button-zolty.png) center center no-repeat;
+    background-size: 100% 100%;
+    width: fit-content;
+    padding: 1rem 2rem 0rem 2rem;
+}
+
+.bg-red {
+    background: url(../img/bg-czerwony.png) center center no-repeat;
+    background-size: 100% 100%;
+    width: fit-content;
+    padding: .5rem 2rem 1rem 2rem;
+}
+
+.bg-blue {
+    background: url(../img/frame-country.png) center center no-repeat;
+    background-size: cover; // width: fit-content;
+    padding: 2rem;
+}
+
+.bg-light-blue {
+    background-color: $light-blue;
+}
+
+.bg-violet {
+    background-color: $violet;
+    clip-path: polygon(0 7%, 100% 0%, 100% 100%, 0% 93%);
+}
+
+.bg-white {
+    background-color: $white;
+    clip-path: polygon(0 0, 100% 5%, 100% 93%, 0 100%);
+}
+
+.section-title {
+    font-size: 2.9rem;
+}
+
+.text-primary {
+    color: $primary !important;
+}

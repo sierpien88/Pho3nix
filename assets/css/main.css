@@ -1,0 +1,249 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Regular.ttf) format("truetype"); }
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Black.ttf) format("truetype");
+  font-weight: 900; }
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Medium.ttf) format("truetype");
+  font-weight: 500; }
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Bold.ttf) format("truetype");
+  font-weight: 700; }
+@font-face {
+  font-family: 'LuckiestGuy';
+  src: url(../fonts/LuckiestGuy-Regular.ttf) format("truetype"); }
+@font-face {
+  font-family: 'Antonio';
+  src: url(../fonts/Antonio-VariableFont_wght.ttf) format("truetype"); }
+a {
+  text-decoration: none; }
+
+.btn-red-bg {
+  color: #ffffff;
+  font-family: 'LuckiestGuy';
+  text-transform: uppercase;
+  background: url(../img/bg-button-czerwony.png) center center no-repeat;
+  background-size: 100% 100%;
+  line-height: 1;
+  padding-top: 1rem; }
+  .btn-red-bg:hover, .btn-red-bg:focus, .btn-red-bg:active {
+    outline: none;
+    box-shadow: none; }
+
+.your-clock {
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+  background: #13365B;
+  padding: 25px 50px;
+  margin: 0; }
+
+.flip-clock-divider {
+  width: 0; }
+  .flip-clock-divider.days .flip-clock-label {
+    right: -55px; }
+  .flip-clock-divider.minutes .flip-clock-label {
+    right: -65px; }
+  .flip-clock-divider .flip-clock-label {
+    top: unset;
+    bottom: 1em;
+    right: -65px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Antonio';
+    text-transform: uppercase;
+    text-align: center; }
+
+.flip-clock-wrapper {
+  width: auto; }
+  .flip-clock-wrapper ul {
+    height: 64px;
+    width: 32px;
+    border-radius: 2px;
+    margin: 8px; }
+    .flip-clock-wrapper ul li a {
+      background: #13365B; }
+    .flip-clock-wrapper ul li a div {
+      outline: 2px solid #13365B; }
+      .flip-clock-wrapper ul li a div.up:after {
+        height: 2px;
+        background-color: #13365B;
+        color: #13365B; }
+      .flip-clock-wrapper ul li a div.down {
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px; }
+      .flip-clock-wrapper ul li a div div.inn {
+        color: #ffffff;
+        font-family: 'Antonio';
+        font-size: 48px;
+        line-height: 55px;
+        border-radius: 2px; }
+    .flip-clock-wrapper ul:first-of-type li a div div.inn, .flip-clock-wrapper ul:nth-of-type(2) li a div div.inn {
+      background: #F89C1E; }
+    .flip-clock-wrapper ul:nth-of-type(3) li a div div.inn, .flip-clock-wrapper ul:nth-of-type(4) li a div div.inn {
+      background: #D91F26; }
+    .flip-clock-wrapper ul:nth-of-type(5) li a div div.inn, .flip-clock-wrapper ul:nth-of-type(6) li a div div.inn {
+      background: #7B3589; }
+
+.flip-clock-dot.top, .flip-clock-dot.bottom {
+  display: none; }
+
+.flip-clock-active {
+  position: relative; }
+  .flip-clock-active:before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 48%;
+    width: 12px;
+    height: 2px;
+    display: block;
+    background: rgba(255, 255, 255, 0.5);
+    transform: rotate(90deg); }
+  .flip-clock-active:after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 48%;
+    width: 12px;
+    height: 2px;
+    display: block;
+    background: rgba(255, 255, 255, 0.5);
+    transform: rotate(90deg); }
+
+.slick-prev {
+  transform: rotate(180deg); }
+  .slick-prev:before {
+    content: url(../img/arrow-next.svg); }
+
+.slick-next:before {
+  content: url(../img/arrow-next.svg); }
+
+.slick-dots {
+  margin-bottom: 2rem; }
+  .slick-dots li button:before {
+    font-size: 18px;
+    color: #C4C4C4;
+    opacity: 1; }
+  .slick-dots li.slick-active button:before {
+    color: #F89C1E; }
+
+.navbar-light .navbar-nav .nav-link {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 900;
+  color: #2D333E;
+  position: relative;
+  display: flex;
+  align-items: center; }
+  .navbar-light .navbar-nav .nav-link:after {
+    content: '';
+    display: block;
+    background-color: #2D333E;
+    border: 1px solid #2D333E;
+    transform: rotate(20deg);
+    height: 41px;
+    width: 1px;
+    margin: 0 10px 0 20px; }
+
+.banner {
+  position: relative;
+  z-index: 1; }
+  .banner__text {
+    position: absolute;
+    text-shadow: 10px 3px 0px black; }
+    .banner__text--yellow {
+      top: 15%;
+      font-size: 4.5rem;
+      right: 10%; }
+    .banner__text--red {
+      top: 28%;
+      font-size: 4rem;
+      right: 11%; }
+
+#choose-country {
+  margin-top: -8rem;
+  z-index: 2;
+  position: relative; }
+
+#initiatives .one-initiative__img-container {
+  height: 280px;
+  display: flex;
+  align-items: flex-end; }
+#initiatives .one-initiative__title {
+  margin-top: .75rem; }
+  #initiatives .one-initiative__title:after {
+    content: url(../img/podkreslnik.png);
+    display: block; }
+
+#news {
+  margin-top: -4rem;
+  padding-top: 4rem; }
+
+body {
+  font-family: 'Roboto';
+  color: #13365B;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 500;
+  background-color: #E5E5E5; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.secondary-font {
+  font-family: 'LuckiestGuy'; }
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: calc(2.5rem * 0.25); }
+
+::-webkit-scrollbar-thumb {
+  box-sizing: padding-box;
+  background-color: #13365b;
+  background-clip: padding-box;
+  border: 0 solid #f89c1e; }
+
+::-webkit-scrollbar-track {
+  background-color: #F89C1E; }
+
+.bg-orange {
+  background: url(../img/bg-button-zolty.png) center center no-repeat;
+  background-size: 100% 100%;
+  width: fit-content;
+  padding: 1rem 2rem 0rem 2rem; }
+
+.bg-red {
+  background: url(../img/bg-czerwony.png) center center no-repeat;
+  background-size: 100% 100%;
+  width: fit-content;
+  padding: .5rem 2rem 1rem 2rem; }
+
+.bg-blue {
+  background: url(../img/frame-country.png) center center no-repeat;
+  background-size: cover;
+  padding: 2rem; }
+
+.bg-light-blue {
+  background-color: #E5E5E5; }
+
+.bg-violet {
+  background-color: #7B3589;
+  clip-path: polygon(0 7%, 100% 0%, 100% 100%, 0% 93%); }
+
+.bg-white {
+  background-color: #ffffff;
+  clip-path: polygon(0 0, 100% 5%, 100% 93%, 0 100%); }
+
+.section-title {
+  font-size: 2.9rem; }
+
+.text-primary {
+  color: #13365B !important; }
+
+/*# sourceMappingURL=main.css.map */

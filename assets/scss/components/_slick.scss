@@ -1,0 +1,33 @@
+.slick-prev {
+    transform: rotate(180deg);
+
+    &:before {
+        content: url(../img/arrow-next.svg);
+    }
+}
+
+.slick-next:before {
+    content: url(../img/arrow-next.svg);
+}
+
+.slick-dots {
+    margin-bottom: 2rem;
+
+    li {
+        button {
+            &:before {
+                font-size: 18px;
+                color: $grey;
+                opacity: 1;
+            }
+        }
+
+        &.slick-active {
+            button {
+                &:before {
+                    color: $orange;
+                }
+            }
+        }
+    }
+}

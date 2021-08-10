@@ -1,0 +1,24 @@
+.navbar-light {
+    .navbar-nav {
+        .nav-link {
+            font-family: 'Roboto';
+            font-size: 18px;
+            font-weight: 900;
+            color: $font-black;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &:after {
+                content: '';
+                display: block;
+                background-color: $font-black;
+                border: 1px solid $font-black;
+                transform: rotate(20deg);
+                height: 41px;
+                width: 1px;
+                margin: 0 10px 0 20px;
+            }
+        }
+    }
+}

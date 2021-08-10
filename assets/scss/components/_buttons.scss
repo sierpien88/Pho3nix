@@ -1,0 +1,17 @@
+.btn-red-bg {
+    color: $white;
+    font-family: 'LuckiestGuy';
+    text-transform: uppercase;
+    background: url(../img/bg-button-czerwony.png) center center no-repeat;
+    background-size: 100% 100%;
+    line-height: 1;
+    padding-top: 1rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+        box-shadow: none;
+    }
+
+}

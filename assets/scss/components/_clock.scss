@@ -1,0 +1,135 @@
+.your-clock {
+    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+    background: $primary;
+    padding: 25px 50px;
+    margin: 0;
+
+}
+
+.flip-clock-divider {
+    width: 0;
+
+    &.days {
+        .flip-clock-label {
+            right: -55px;
+        }
+    }
+
+    &.minutes {
+        .flip-clock-label {
+            right: -65px;
+        }
+    }
+
+    .flip-clock-label {
+        top: unset;
+        bottom: 1em;
+        right: -65px;
+        font-size: 11px;
+        color: rgba($white, 0.4);
+        font-family: 'Antonio';
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+
+.flip-clock-wrapper {
+    width: auto;
+
+    ul {
+        height: 64px;
+        width: 32px;
+        border-radius: 2px;
+        margin: 8px;
+
+        li a {
+            background: $primary;
+        }
+
+        li a div {
+            outline: 2px solid $primary;
+
+            &.up {
+                &:after {
+                    height: 2px;
+                    background-color: $primary;
+                    color: $primary;
+                }
+            }
+
+            &.down {
+                border-bottom-left-radius: 2px;
+                border-bottom-right-radius: 2px;
+            }
+
+            div {
+
+                &.inn {
+                    color: $white;
+                    font-family: 'Antonio';
+                    font-size: 48px;
+                    line-height: 55px;
+                    border-radius: 2px;
+                }
+            }
+        }
+
+        &:first-of-type,
+        &:nth-of-type(2) {
+            li a div div.inn {
+                background: $orange;
+            }
+        }
+
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+            li a div div.inn {
+                background: $red;
+            }
+        }
+
+        &:nth-of-type(5),
+        &:nth-of-type(6) {
+            li a div div.inn {
+                background: $violet;
+            }
+        }
+    }
+}
+
+.flip-clock-dot {
+
+    &.top,
+    &.bottom {
+        display: none;
+    }
+}
+
+.flip-clock-active {
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 48%;
+        width: 12px;
+        height: 2px;
+        display: block;
+        background: rgba(255, 255, 255, 0.5);
+        transform: rotate(90deg);
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        right: -10px;
+        top: 48%;
+        width: 12px;
+        height: 2px;
+        display: block;
+        background: rgba(255, 255, 255, 0.5);
+        transform: rotate(90deg);
+
+    }
+}
