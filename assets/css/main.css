@@ -29,7 +29,10 @@ a {
   background: url(../img/bg-button-czerwony.png) center center no-repeat;
   background-size: 100% 100%;
   line-height: 1;
-  padding-top: 1rem; }
+  padding-top: 1rem;
+  padding-right: 1rem; }
+  .btn-red-bg--big {
+    font-size: 1.5rem; }
   .btn-red-bg:hover, .btn-red-bg:focus, .btn-red-bg:active {
     outline: none;
     box-shadow: none; }
@@ -148,7 +151,7 @@ a {
 
 .counter-info {
   background: url(../img/galeria-bg-buttons.png) center center no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   width: 280px;
   color: #ffffff;
   font-family: 'LuckiestGuy';
@@ -273,13 +276,20 @@ a {
     font-size: 2.9rem;
     font-family: 'LuckiestGuy'; }
 
+.img-news {
+  margin-top: -2rem; }
+
+.news-text {
+  font-size: 1.3rem;
+  line-height: 2.6rem; }
+
 body {
   font-family: 'Roboto';
   color: #13365B;
   font-size: 18px;
   line-height: 1.2;
   font-weight: 500;
-  background-color: #eaf3f9; }
+  background: #eaf3f9; }
 
 h1,
 h2,
@@ -320,6 +330,9 @@ h6,
   .bg-red--numbers {
     background: url(../img/bg-czerwony-numbers.png) center center no-repeat;
     padding: .5rem 1rem 0rem 1rem; }
+  .bg-red--whole-section-color {
+    background: #D91F26;
+    clip-path: polygon(0 0, 100% 0, 100% 72%, 0% 100%); }
 
 .bg-green {
   background: url(../img/bg-zielony.png) center center no-repeat;
@@ -345,6 +358,8 @@ h6,
 
 .section-title {
   font-size: 2.9rem; }
+  .section-title--shadow {
+    text-shadow: 10px 3px 0px black; }
 
 .text-primary {
   color: #13365B !important; }

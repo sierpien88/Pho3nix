@@ -4,7 +4,7 @@ body {
     font-size: 18px;
     line-height: 1.2;
     font-weight: 500;
-    background-color: $light-blue;
+    background: $light-blue;
 
 }
 
@@ -56,6 +56,11 @@ h6,
         background: url(../img/bg-czerwony-numbers.png) center center no-repeat;
         padding: .5rem 1rem 0rem 1rem;
     }
+
+    &--whole-section-color {
+        background: $red;
+        clip-path: polygon(0 0, 100% 0, 100% 72%, 0% 100%);
+    }
 }
 
 .bg-green {
@@ -88,6 +93,10 @@ h6,
 
 .section-title {
     font-size: 2.9rem;
+
+    &--shadow {
+        text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
+    }
 }
 
 .text-primary {
