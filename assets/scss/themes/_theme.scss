@@ -39,6 +39,11 @@ h6,
     background-size: 100% 100%;
     width: fit-content;
     padding: 1rem 2rem 0rem 2rem;
+
+    &--numbers {
+        background: url(../img/bg-orange-numbers.png) center center no-repeat;
+        padding: .5rem 1rem 0rem 1rem;
+    }
 }
 
 .bg-red {
@@ -46,7 +51,20 @@ h6,
     background-size: 100% 100%;
     width: fit-content;
     padding: .5rem 2rem 1rem 2rem;
+
+    &--numbers {
+        background: url(../img/bg-czerwony-numbers.png) center center no-repeat;
+        padding: .5rem 1rem 0rem 1rem;
+    }
 }
+
+.bg-green {
+    background: url(../img/bg-zielony.png) center center no-repeat;
+    background-size: 100% 100%;
+    width: fit-content;
+    padding: .5rem 2rem 0rem 2rem;
+}
+
 
 .bg-blue {
     background: url(../img/frame-country.png) center center no-repeat;
@@ -74,4 +92,20 @@ h6,
 
 .text-primary {
     color: $primary !important;
+}
+
+.text-orange {
+    color: $orange !important;
+}
+
+.text-red {
+    color: $red !important;
+}
+
+.text-violet {
+    color: $violet !important;
+}
+
+.text-green {
+    color: $green !important;
 }

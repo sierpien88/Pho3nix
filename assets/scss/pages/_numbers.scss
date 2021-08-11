@@ -1,0 +1,28 @@
+.numbersPage {
+    .banner {
+        line-height: 70px;
+
+        &--numbers {
+            background: url(../img/wliczbach/background-w-liczbach.png) top center no-repeat;
+            background-size: cover;
+        }
+
+        &__big-text {
+            font-size: 3.3rem;
+        }
+
+        .text-shadow {
+            text-shadow: 0px 7px 0px rgba($primary, 1);
+        }
+    }
+
+    .numbers-container {
+        font-size: 1.4rem;
+        font-weight: 900;
+
+        &__big-text {
+            font-size: 2.9rem;
+            font-family: 'LuckiestGuy';
+        }
+    }
+}
