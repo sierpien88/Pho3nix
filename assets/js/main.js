@@ -66,5 +66,24 @@ $('#all-initiatives').slick({
     slidesToScroll: 1,
     dots: true,
   });
+
+  var $status = $('.counter-info');
+  var $slickElement = $('#gallery-carousel');
+
+$slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+      //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+      var i = (currentSlide ? currentSlide : 0) + 1;
+      $status.html( '<span class="current_slide">' + i + '</span> / <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+
+
+$('#gallery-carousel').slick({
+centerMode: true,
+infinite: true,
+centerPadding: '40px',
+slidesToShow: 1,
+dots: false,
+arrows: false
+});
   
 });
