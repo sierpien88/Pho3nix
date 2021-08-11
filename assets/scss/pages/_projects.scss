@@ -1,0 +1,105 @@
+/* ABSTRACTS */
+
+$clip-padding: 3rem;
+
+/* THEME */
+
+@mixin underline {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 4%;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding-top: 4%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}
+
+.underline {
+    &-yellow {
+        @include underline;
+        &::after {
+            background-image: url(../img/svg/underline-yellow_1.svg);
+        }
+    }
+    &-violet{
+        @include underline;
+        margin-bottom: 7.5%;
+        &::after{
+            background-image: url(../img/svg/underline-violet_1.svg);
+            padding-top: 7.5%;
+        }
+    }
+}
+
+.text-orange {
+    color: $orange !important;
+}
+.text-violet{
+    color: $violet !important;
+}
+
+.bg-clip {
+    z-index: 900;
+    padding-top: $clip-padding;
+    &--top-rtl {
+        clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+        transform: translateY(1px);
+    }
+    &--top-ltr {
+        clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+        transform: translateY(1px);
+    }
+    &--bottom-rtl {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+        transform: translateY(-1px);
+    }
+    &--bottom-ltr {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+        transform: translateY(-1px);
+    }
+    &--shift-up {
+        margin-top: -$clip-padding;
+    }
+}
+
+.bg {
+    &-color {
+        &-primary {
+            background-color: $primary;
+        }
+        &-violet {
+            background-color: $violet;
+        }
+        &-orange {
+            background-color: $orange;
+        }
+        &-green{
+            background-color: $green;
+        }
+        &-red {
+            background-color: $red;
+        }
+        &-light-blue {
+            background-color: $light-blue;
+        }
+        &-black {
+            background-color: $font-black;
+        }
+        &-grey {
+            background-color: $grey;
+        }
+        &-white{
+            background-color: $white;
+        }
+    }
+}
+
+.shift-up {
+    margin-top: calc(-3rem - 2px);
+}
