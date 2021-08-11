@@ -130,6 +130,43 @@ a {
   .slick-dots li.slick-active button:before {
     color: #F89C1E; }
 
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  padding: 0 0px !important; }
+
+#gallery-carousel .slick-next {
+  right: 50px;
+  bottom: 40px;
+  top: unset;
+  z-index: 3; }
+#gallery-carousel .slick-prev {
+  right: 13rem;
+  bottom: 11px;
+  left: unset;
+  top: unset;
+  z-index: 3; }
+
+.counter-info {
+  background: url(../img/galeria-bg-buttons.png) center center no-repeat;
+  background-size: cover;
+  width: 280px;
+  color: #ffffff;
+  font-family: 'LuckiestGuy';
+  padding: .8rem 4rem;
+  position: absolute;
+  right: 0;
+  bottom: 6rem;
+  text-align: center; }
+  .counter-info .current_slide {
+    font-size: 72px; }
+  .counter-info .total_slides,
+  .counter-info .divider {
+    font-size: 36px;
+    color: rgba(255, 255, 255, 0.5); }
+
+#gallery {
+  padding-bottom: 6rem; }
+
 .gallery-bg-small {
   background-size: cover;
   background-position: center center;
@@ -161,6 +198,30 @@ a {
     height: 41px;
     width: 1px;
     margin: 0 10px 0 20px; }
+
+.footer {
+  background: #13365B;
+  clip-path: polygon(0 0, 100% 14%, 100% 100%, 0% 100%);
+  color: #ffffff; }
+  .footer__text {
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 24px; }
+  .footer a {
+    color: #ffffff; }
+  .footer ul {
+    list-style-type: none;
+    font-size: .95rem;
+    font-weight: 700;
+    line-height: 27px; }
+  .footer .fb:hover .img-fluid path {
+    fill: #1877f2; }
+  .footer .linkedin:hover .img-fluid path {
+    fill: #0a66c2; }
+  .footer .twitter:hover .img-fluid path {
+    fill: #1da1f2; }
+  .footer .insta:hover .img-fluid path {
+    fill: #c32aa3; }
 
 .banner {
   position: relative;

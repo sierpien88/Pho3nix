@@ -1,0 +1,63 @@
+.footer {
+    background: $primary;
+    clip-path: polygon(0 0, 100% 14%, 100% 100%, 0% 100%);
+
+    color: $white;
+
+    &__text {
+        font-size: .9rem;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    a {
+        color: $white;
+    }
+
+    ul {
+        list-style-type: none;
+        font-size: .95rem;
+        font-weight: 700;
+        line-height: 27px;
+    }
+
+    .fb {
+        &:hover {
+            .img-fluid {
+                path {
+                    fill: $fb;
+                }
+            }
+        }
+    }
+
+    .linkedin {
+        &:hover {
+            .img-fluid {
+                path {
+                    fill: $linkedin;
+                }
+            }
+        }
+    }
+
+    .twitter {
+        &:hover {
+            .img-fluid {
+                path {
+                    fill: $twitter;
+                }
+            }
+        }
+    }
+
+    .insta {
+        &:hover {
+            .img-fluid {
+                path {
+                    fill: $insta;
+                }
+            }
+        }
+    }
+}

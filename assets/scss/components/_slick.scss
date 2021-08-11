@@ -31,3 +31,49 @@
         }
     }
 }
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    padding: 0 0px !important;
+}
+
+#gallery-carousel {
+
+    .slick-next {
+        right: 50px;
+        bottom: 40px;
+        top: unset;
+        z-index: 3;
+    }
+
+    .slick-prev {
+        right: 13rem;
+        bottom: 11px;
+        left: unset;
+        top: unset;
+        z-index: 3;
+    }
+}
+
+.counter-info {
+    background: url(../img/galeria-bg-buttons.png) center center no-repeat;
+    background-size: cover;
+    width: 280px;
+    color: $white;
+    font-family: 'LuckiestGuy';
+    padding: .8rem 4rem;
+    position: absolute;
+    right: 0;
+    bottom: 6rem;
+    text-align: center;
+
+    .current_slide {
+        font-size: 72px;
+    }
+
+    .total_slides,
+    .divider {
+        font-size: 36px;
+        color: rgba($white, .5);
+    }
+}
