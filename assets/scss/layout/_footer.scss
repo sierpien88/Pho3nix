@@ -1,6 +1,12 @@
 .footer {
     background: $primary;
-    clip-path: polygon(0 0, 100% 14%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
+    padding-top: 2rem;
+
+    @media (min-width: 800px) {
+        clip-path: polygon(0 0, 100% 14%, 100% 100%, 0% 100%);
+        padding-top: 0;
+    }
 
     color: $white;
 

@@ -5,18 +5,45 @@
     &__text {
 
         position: absolute;
-        text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
+        text-shadow: 4px 3px 0px rgba(0, 0, 0, 1);
+
+        @media (min-width: 600px) {
+            text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
+        }
 
         &--yellow {
-            top: 15%;
-            font-size: 4.5rem;
+            top: 2rem;
+            font-size: 1rem;
             right: 10%;
         }
 
         &--red {
-            top: 28%;
-            font-size: 4rem;
+            top: 5rem;
+            font-size: 1rem;
             right: 11%;
+        }
+
+        @media (min-width: 600px) {
+            &--yellow {
+                top: 7rem;
+                font-size: 2.5rem;
+            }
+
+            &--red {
+                top: 11rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 991px) {
+            &--yellow {
+                font-size: 4.5rem;
+            }
+
+            &--red {
+                top: 14rem;
+                font-size: 4rem;
+            }
         }
 
 
@@ -24,9 +51,21 @@
 }
 
 #choose-country {
-    margin-top: -8rem;
+    margin-top: 0rem;
     z-index: 2;
     position: relative;
+
+    img {
+        max-width: 58px;
+    }
+
+    @media (min-width: 600px) {
+        max-width: 100%;
+    }
+
+    @media (min-width: 1200px) {
+        margin-top: -8rem;
+    }
 }
 
 #initiatives {

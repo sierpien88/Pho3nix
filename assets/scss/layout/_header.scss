@@ -11,14 +11,32 @@
 
             &:after {
                 content: '';
-                display: block;
+                display: none;
                 background-color: $font-black;
                 border: 1px solid $font-black;
                 transform: rotate(20deg);
                 height: 41px;
                 width: 1px;
                 margin: 0 10px 0 20px;
+
+                @media (min-width: 1200px) {
+                    display: block;
+                }
             }
+        }
+    }
+}
+
+.navbar-brand {
+    .img-fluid {
+        max-width: 97px;
+    }
+}
+
+@media (min-width: 800px) {
+    .navbar-brand {
+        .img-fluid {
+            max-width: 100%;
         }
     }
 }
