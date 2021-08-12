@@ -7,7 +7,11 @@ body {
     background: $light-blue;
 
 }
-
+::selection{
+    background-color: lighten($orange, 5);
+    color: $green;
+    text-shadow: 0.1em 0.1em 0 rgba($black, 0.5);
+}
 h1,
 h2,
 h3,
@@ -94,8 +98,14 @@ h6,
 .section-title {
     font-size: 2.9rem;
 
-    &--shadow {
+    &--shadow{
         text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
+    }
+    @media(max-width: 991px){
+        font-size: calc(1rem + 3vw);
+    }
+    @media(max-width: 767px){
+        font-size: calc(1rem + 3.7vw);
     }
 }
 
