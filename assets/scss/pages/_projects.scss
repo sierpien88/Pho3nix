@@ -1,6 +1,7 @@
 /* ABSTRACTS */
 
 $clip-padding: 3rem;
+$clip-padding-divider: 5.5vw;
 
 /* THEME */
 
@@ -14,7 +15,7 @@ $clip-padding: 3rem;
         top: 100%;
         left: 0;
         width: 100%;
-        padding-top: 4%;
+        padding-top: 4%; //this padding depends of aspect ratio of an image
         background-repeat: no-repeat;
         background-size: 100%;
     }
@@ -27,10 +28,10 @@ $clip-padding: 3rem;
             background-image: url(../img/svg/underline-yellow_1.svg);
         }
     }
-    &-violet{
+    &-violet {
         @include underline;
         margin-bottom: 7.5%;
-        &::after{
+        &::after {
             background-image: url(../img/svg/underline-violet_1.svg);
             padding-top: 7.5%;
         }
@@ -40,7 +41,8 @@ $clip-padding: 3rem;
 .text-orange {
     color: $orange !important;
 }
-.text-violet{
+
+.text-violet {
     color: $violet !important;
 }
 
@@ -63,10 +65,34 @@ $clip-padding: 3rem;
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
         transform: translateY(-1px);
     }
-    &--shift-up {
-        margin-top: -$clip-padding;
+    &-divider {
+        z-index: 900;
+        padding-top: $clip-padding-divider;
+        &--top-rtl {
+            clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+            transform: translateY(1px);
+        }
+        &--top-ltr {
+            clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+            transform: translateY(1px);
+        }
+        &--bottom-rtl {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+            transform: translateY(-1px);
+        }
+        &--bottom-ltr {
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+            transform: translateY(-1px);
+        }
     }
 }
+
+.shift-up {
+    margin-top: calc(-3rem - 2px);
+    &--divider{
+        margin-top: calc(-5.7vw - 2px);
+    }
+}   
 
 .bg {
     &-color {
@@ -79,7 +105,7 @@ $clip-padding: 3rem;
         &-orange {
             background-color: $orange;
         }
-        &-green{
+        &-green {
             background-color: $green;
         }
         &-red {
@@ -94,12 +120,32 @@ $clip-padding: 3rem;
         &-grey {
             background-color: $grey;
         }
-        &-white{
+        &-white {
             background-color: $white;
         }
     }
 }
 
-.shift-up {
-    margin-top: calc(-3rem - 2px);
+
+
+
+/* COMPONENTS */
+
+.imageText {
+    &__image {
+        position: relative;
+        z-index: 0;
+        img {
+            @media(min-width: 768px) and (max-width: 991px) {
+                transform: scale(1.3);
+            }
+        }
+    }
+    &__text {
+        position: relative;
+        z-index: 1;
+    }
+    &__heading {
+        position: relative;
+    }
 }

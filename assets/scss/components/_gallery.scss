@@ -1,4 +1,4 @@
-#gallery {
+.gallery {
     padding-bottom: 6rem;
 }
 
@@ -7,7 +7,11 @@
     background-position: center center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 217px;
+    padding-top: 75%;
+    padding-top: min(217px, 75%);
+    @media(max-width: 767px) {
+        height: 150px;
+    }
 }
 
 .gallery-bg-big {
@@ -15,5 +19,9 @@
     background-position: center center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 434px;
+    padding-top: 75%;
+    padding-top: min(434px, 75%);
+    @media(max-width: 767px) {
+        height: 300px;
+    }
 }
