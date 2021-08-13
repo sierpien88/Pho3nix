@@ -113,6 +113,9 @@ $clip-padding-divider: 5.5vw;
         }
         &-light-blue {
             background-color: $light-blue;
+            @media(max-width: 599px){
+                background-color: $white;
+            }
         }
         &-black {
             background-color: $font-black;
@@ -125,8 +128,6 @@ $clip-padding-divider: 5.5vw;
         }
     }
 }
-
-
 
 
 /* COMPONENTS */
