@@ -1,17 +1,41 @@
 .slick-prev {
-    transform: rotate(180deg);
+    left: 0;
+    top: 80%;
+
+
+    @media (min-width: 1200px) {
+        left: -25px;
+        top: 50%;
+
+    }
+
+    &:before {
+        content: url(../img/arrow-prev.svg);
+    }
+}
+
+.slick-next {
+    right: 25px;
+    top: 80%;
+
+    @media (min-width: 1200px) {
+        right: -25px;
+        top: 50%;
+    }
 
     &:before {
         content: url(../img/arrow-next.svg);
     }
 }
 
-.slick-next:before {
-    content: url(../img/arrow-next.svg);
-}
-
 .slick-dots {
     margin-bottom: 2rem;
+    bottom: auto;
+    margin-top: 1rem;
+
+    @media (min-width: 600px) {
+        margin-top: 0;
+    }
 
     li {
         button {
@@ -48,7 +72,7 @@
 
     .slick-prev {
         right: 13rem;
-        bottom: 11px;
+        bottom: 40px;
         left: unset;
         top: unset;
         z-index: 3;

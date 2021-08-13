@@ -1,7 +1,6 @@
 .your-clock {
-    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
     background: $primary;
-    padding: 25px 50px;
+    padding: 25px 10px;
     margin: 0;
 
 }
@@ -42,34 +41,39 @@
         border-radius: 2px;
         margin: 8px;
 
-        li a {
-            background: $primary;
-        }
+        li {
+            width: 28px;
 
-        li a div {
-            outline: 2px solid $primary;
+            a {
+                background: $primary;
 
-            &.up {
-                &:after {
-                    height: 2px;
-                    background-color: $primary;
-                    color: $primary;
-                }
-            }
+                div {
+                    outline: 2px solid $primary;
+                    width: 70%;
 
-            &.down {
-                border-bottom-left-radius: 2px;
-                border-bottom-right-radius: 2px;
-            }
+                    &.up {
+                        &:after {
+                            height: 2px;
+                            background-color: $primary;
+                            color: $primary;
+                        }
+                    }
 
-            div {
+                    &.down {
+                        border-bottom-left-radius: 2px;
+                        border-bottom-right-radius: 2px;
+                    }
 
-                &.inn {
-                    color: $white;
-                    font-family: 'Antonio';
-                    font-size: 48px;
-                    line-height: 55px;
-                    border-radius: 2px;
+                    div {
+
+                        &.inn {
+                            color: $white;
+                            font-family: 'Antonio';
+                            font-size: 18px;
+                            line-height: 55px;
+                            border-radius: 2px;
+                        }
+                    }
                 }
             }
         }
@@ -131,5 +135,35 @@
         background: rgba(255, 255, 255, 0.5);
         transform: rotate(90deg);
 
+    }
+}
+
+@media (min-width: 800px) {
+    .your-clock {
+        clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+        padding: 25px 50px;
+    }
+
+    .flip-clock-wrapper {
+        width: auto;
+
+        ul {
+
+            li {
+                width: 100%;
+
+                a div {
+                    width: 100%;
+
+
+                    div {
+
+                        &.inn {
+                            font-size: 48px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

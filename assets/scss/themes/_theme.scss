@@ -13,15 +13,22 @@ body {
     font-size: 18px;
     line-height: 1.2;
     font-weight: 500;
-    background: $light-blue;
     opacity: 0;
     animation: fadeIn 0.6s 0.6s ease-in forwards;
+    background: $white;
+
+    @media (min-width: 600px) {
+        background: $light-blue;
+    }
+
 }
-::selection{
+
+::selection {
     background-color: lighten($orange, 5);
     color: $green;
     text-shadow: 0.1em 0.1em 0 rgba($black, 0.5);
 }
+
 h1,
 h2,
 h3,
@@ -52,11 +59,15 @@ h6,
     background: url(../img/bg-button-zolty.png) center center no-repeat;
     background-size: 100% 100%;
     width: fit-content;
-    padding: 1rem 2rem 0rem 2rem;
+    padding: 1rem 2rem .5rem 2rem;
 
     &--numbers {
         background: url(../img/bg-orange-numbers.png) center center no-repeat;
         padding: .5rem 1rem 0rem 1rem;
+    }
+
+    @media (min-width: 600px) {
+        padding: 1rem 2rem 0rem 2rem;
     }
 }
 
@@ -91,9 +102,14 @@ h6,
 
 
 .bg-blue {
-    background: url(../img/frame-country.png) center center no-repeat;
+    background: $white;
     background-size: cover; // width: fit-content;
-    padding: 2rem;
+    padding: 0rem;
+
+    @media (min-width: 600px) {
+        background: url(../img/frame-country.png) center center no-repeat;
+        padding: 2rem;
+    }
 }
 
 .bg-light-blue {
@@ -124,13 +140,15 @@ h6,
 .section-title {
     font-size: 2.9rem;
     line-height: 1.5;
-    &--shadow{
+    &--shadow {
         text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
     }
-    @media(max-width: 991px){
+
+    @media(max-width: 991px) {
         font-size: calc(1rem + 3vw);
     }
-    @media(max-width: 767px){
+
+    @media(max-width: 767px) {
         font-size: calc(1rem + 3.7vw);
     }
 }

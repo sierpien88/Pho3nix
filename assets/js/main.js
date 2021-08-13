@@ -64,7 +64,7 @@ $(function () {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    dots: true,
+    dots: true
   });
 
   var $status = $('.counter-info');
