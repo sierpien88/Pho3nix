@@ -1,8 +1,8 @@
 @keyframes fadeIn {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
     }
 }
@@ -15,18 +15,25 @@ body {
     font-weight: 500;
     opacity: 0;
     animation: fadeIn 0.6s 0.6s ease-in forwards;
-    background: $white;
+    background: $light-blue;
+}
 
-    @media (min-width: 600px) {
-        background: $light-blue;
-    }
-
+main {
+    overflow-x: hidden;
 }
 
 ::selection {
     background-color: lighten($orange, 5);
     color: $green;
     text-shadow: 0.1em 0.1em 0 rgba($black, 0.5);
+}
+
+footer{
+    ul{
+        @media(max-width: 1199px){
+            padding: 0;
+        }
+    }
 }
 
 h1,
@@ -37,6 +44,99 @@ h5,
 h6,
 .secondary-font {
     font-family: 'LuckiestGuy';
+}
+
+input {
+    background-color: $white;
+    outline: 0;
+    border: 0;
+    font-weight: 700;
+    font-size: calc(1.275rem + .3vw);
+    color: $green;
+    @media(max-width: 767px) {
+        font-size: calc(1rem + .3vw);
+    }
+    &::placeholder {
+        color: $grey;
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+    &:focus {
+        &::placeholder {
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+    }
+    &:-webkit-autofill::first-line {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: calc(1.275rem + .3vw);
+        color: $white;
+        @media(max-width: 767px) {
+            font-size: calc(1rem + .3vw);
+        }
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0px 1000px lighten($orange, 0) inset !important;
+    font-size: calc(1.275rem + .3vw);
+    @media(max-width: 767px) {
+        font-size: calc(1rem + .3vw);
+    }
+}
+
+textarea {
+    background-color: $white;
+    outline: 0;
+    border: 0;
+    font-weight: 700;
+    position: relative;
+    pointer-events: all;
+    vertical-align: bottom;
+    min-height: 188px;
+    font-size: calc(1.275rem + .3vw);
+    color: $green;
+    @media(max-width: 767px) {
+        font-size: calc(1rem + .3vw);
+    }
+    &::placeholder {
+        color: $grey;
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+    &:focus {
+        &::placeholder {
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+    }
+    &::-webkit-resizer {
+        display: none;
+        -webkit-appearance: none;
+        opacity: 0;
+    }
+}
+
+.textarea__wrapper {
+    position: relative;
+    pointer-events: none;
+    &::after {
+        content: '';
+        background-color: transparent;
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-top: 0.5rem solid transparent;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid $orange;
+        border-bottom: 0.5rem solid $orange;
+    }
 }
 
 ::-webkit-scrollbar {
@@ -60,12 +160,10 @@ h6,
     background-size: 100% 100%;
     width: fit-content;
     padding: 1rem 2rem .5rem 2rem;
-
     &--numbers {
         background: url(../img/bg-orange-numbers.png) center center no-repeat;
         padding: .5rem 1rem 0rem 1rem;
     }
-
     @media (min-width: 600px) {
         padding: 1rem 2rem 0rem 2rem;
     }
@@ -76,12 +174,10 @@ h6,
     background-size: 100% 100%;
     width: fit-content;
     padding: .5rem 2rem 1rem 2rem;
-
     &--numbers {
         background: url(../img/bg-czerwony-numbers.png) center center no-repeat;
         padding: .5rem 1rem 0rem 1rem;
     }
-
     &--whole-section-color {
         background: $red;
         clip-path: polygon(0 0, 100% 0, 100% 72%, 0% 100%);
@@ -93,19 +189,17 @@ h6,
     background-size: 100% 100%;
     width: fit-content;
     padding: .5rem 2rem 0rem 2rem;
-    &--numbers{
+    &--numbers {
         background: url(../img/bg-green-numbers.svg) center no-repeat;
         background-size: cover;
         padding: .5rem 1rem 0rem 1rem;
     }
 }
 
-
 .bg-blue {
     background: $white;
     background-size: cover; // width: fit-content;
     padding: 0rem;
-
     @media (min-width: 600px) {
         background: url(../img/frame-country.png) center center no-repeat;
         padding: 2rem;
@@ -143,11 +237,9 @@ h6,
     &--shadow {
         text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
     }
-
     @media(max-width: 991px) {
         font-size: calc(1rem + 3vw);
     }
-
     @media(max-width: 767px) {
         font-size: calc(1rem + 3.7vw);
     }
@@ -173,13 +265,46 @@ h6,
     color: $green !important;
 }
 
-.divider{
+.divider {
     position: relative;
     z-index: 100;
 }
 
-.line-height{
-    &-15{
+.line-height {
+    &-15 {
         line-height: 1.5;
     }
+}
+
+.shadow-soft {
+    filter: drop-shadow(.2rem .2rem .4rem rgba($black, 0.5));
+    &-sm {
+        @media(min-width: 576px) {
+            filter: drop-shadow(.2rem .2rem .4rem rgba($black, 0.5));
+        }
+    }
+}
+
+.z-index-n1 {
+    z-index: -1;
+}
+
+.hover-effect-1 {
+    @media(min-width: 768px) {
+        &>* {
+            transform: translateY(0) scale(1);
+            transform-origin: center bottom;
+            filter: drop-shadow(0);
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+        &:hover>* {
+            transform: translateY(-0.4rem) scale(1.05);
+            filter: drop-shadow(0.4rem 0.4rem 0 rgba($primary, 0.8));
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+    }
+}
+
+.left-0 {
+    left: 0;
 }

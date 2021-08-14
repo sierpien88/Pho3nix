@@ -77,7 +77,7 @@ $(function () {
   });
 
 
-  $('.gallery-carousel').slick({
+  $slickElement.slick({
     centerMode: true,
     infinite: true,
     centerPadding: '40px',
@@ -86,10 +86,91 @@ $(function () {
     arrows: true
   });
 
+
+
+  let cardsBox = document.querySelectorAll('.cardOne');
+  if (cardsBox) {
+    let cardsBox__cards = null;
+    let cardsSlider = document.querySelector('.cardsBox__slider');
+    let isCreatedCardsSlider = false;
+    let divs = {};
+    let cardsBoxMobile = false;
+    let i = 0;
+    if (window.innerWidth < 576) {
+      cardsBox.forEach(el => {
+        if (isCreatedCardsSlider == false) {
+          divs[i] = document.createElement('div');
+          cardsSlider.appendChild(divs[i]).appendChild(el);
+          i++;
+        }
+      });
+      if (isCreatedCardsSlider == false) {
+        $('.cardsBox__slider').slick({
+          centerMode: true,
+          infinite: true,
+          centerPadding: '40px',
+          slidesToShow: 1,
+          dots: true,
+          arrows: true,
+          mobileFirst: true
+        });
+        isCreatedCardsSlider = true;
+      }
+      cardsBoxMobile = true;
+      i = 0;
+    }
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 576 && cardsBoxMobile == false) {
+        // cardsSlider = document.querySelector('.cardsBox__slider');
+        cardsSlider.style.removeProperty('display');
+        cardsBox.forEach(el => {
+          if (isCreatedCardsSlider == false) {
+            divs[i] = document.createElement('div');
+            cardsSlider.appendChild(divs[i]).appendChild(el);
+            i++;
+          }
+          else {
+            for(let i = 0; i < cardsBox.length; i++){
+              divs[i].appendChild(cardsBox[i]);
+            }
+
+            // cardsBox.forEach(el => {
+            //   // console.log(divs[i]);
+            //   console.log(i);
+            //   divs[i].appendChild(el);
+            //   i++;
+            // });
+          }
+        });
+        if (isCreatedCardsSlider == false) {
+          $('.cardsBox__slider').slick({
+            centerMode: true,
+            infinite: true,
+            centerPadding: '40px',
+            slidesToShow: 1,
+            dots: true,
+            arrows: true,
+            mobileFirst: true
+          });
+          isCreatedCardsSlider = true;
+        }
+        cardsBoxMobile = true;
+        i = 0;
+      }
+      else if (window.innerWidth > 575 && cardsBoxMobile == true) {
+        cardsBox__cards = document.querySelector('.cardsBox__cards');
+        cardsBox.forEach(el => {
+          cardsBox__cards.appendChild(el);
+        });
+        cardsSlider.style.display = 'none';
+        cardsBoxMobile = false;
+      }
+    });
+  }
 });
 
 
-
+// component with image and text
 let imageTextComponents = document.querySelectorAll('.imageText');
 if (imageTextComponents[0]) {
   imageTextComponents.forEach(element => {
@@ -98,24 +179,49 @@ if (imageTextComponents[0]) {
     let imageText__image = element.querySelector('.imageText__image');
     let isMobile = false;
     if (window.innerWidth < 767) {
-      if(imageText__headingH2){
+      if (imageText__headingH2) {
         imageText__image.prepend(imageText__headingH2);
       }
       isMobile = true;
     }
     window.addEventListener('resize', () => {
       if (window.innerWidth < 768 && isMobile == false) {
-        if(imageText__headingH2){
-        imageText__image.prepend(imageText__headingH2);
+        if (imageText__headingH2) {
+          imageText__image.prepend(imageText__headingH2);
         }
         isMobile = true;
       }
-      else if(window.innerWidth > 767 && isMobile == true){
-        if(imageText__headingH2){
-        imageText__heading.appendChild(imageText__headingH2);
+      else if (window.innerWidth > 767 && isMobile == true) {
+        if (imageText__headingH2) {
+          imageText__heading.appendChild(imageText__headingH2);
         }
         isMobile = false;
       }
     });
   });
 }
+
+
+
+// component cardBox
+// let cardsBox = document.querySelector('.cardsBox');
+// if (cardsBox) {
+//   let cardsSlick = document.querySelector('');
+//   function changeCardsBox(cardBox) {
+//     let isMobile = false;
+//   }
+//   // if(window.innerWidth < 576 && ){
+//   // }
+// }
+
+//autoresize textarea on input
+const tx = document.getElementsByTagName("textarea");
+for (let i = 0; i < tx.length; i++) {
+  tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+  tx[i].addEventListener("input", OnInput, false);
+}
+function OnInput() {
+  this.style.height = "auto";
+  this.style.height = (this.scrollHeight) + "px";
+}
+
