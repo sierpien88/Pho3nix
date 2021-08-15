@@ -1,13 +1,20 @@
 .numbersPage {
     .banner {
         line-height: 70px;
+        @media(max-width: 575px){
+            display: none;
+        }
         &--numbers {
             background: url(../img/wliczbach/background-w-liczbach.png) top center no-repeat;
             background-size: cover;
+            background-position: right 20% top;
         }
 
         &__big-text {
             font-size: 3.3rem;
+            @media(max-width: 767px){
+                display: block;
+            }
         }
 
         .text-shadow {
@@ -22,6 +29,18 @@
         &__big-text {
             font-size: 2.9rem;
             font-family: 'LuckiestGuy';
+        }
+    }
+    .numbers__slider{
+        display: none;
+        @media(max-width: 575px){
+            display: block;
+        }
+        .slick-dots{
+            position: relative;
+        }
+        .slick-prev, .slick-next{
+            top: 97%;
         }
     }
 }

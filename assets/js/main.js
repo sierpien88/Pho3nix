@@ -86,10 +86,91 @@ $(function () {
     arrows: true
   });
 
+  let arrNumbersSections = document.querySelectorAll('.js-numbers');
+  if (arrNumbersSections[0]) {
+    console.log(arrNumbersSections);
+    let numbersSlider = document.querySelector('.numbers__slider');
+    let dividers = document.querySelectorAll('.divider');
+    let numbersMainTag = null;
+    let isNumbersSlider = false;
+    let isNumbersMobile = false;
+    let divs = {};
+    let i = 0;
+    if (window.innerWidth < 576 && isNumbersSlider == false) {
+      dividers.forEach(el => {
+        el.style.display = 'none';
+      });
+      arrNumbersSections.forEach(el => {
+        divs[i] = document.createElement('div');
+        numbersSlider.appendChild(divs[i]).appendChild(el);
+        i++;
+      });
+      $('.numbers__slider').slick({
+        centerMode: true,
+        infinite: true,
+        centerPadding: '40px',
+        slidesToShow: 1,
+        dots: true,
+        arrows: true,
+        mobileFirst: true
+      });
+      isNumbersSlider = true;
+      isNumbersMobile = true;
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 576 && isNumbersMobile == false) {
+        dividers.forEach(el => {
+          el.style.display = 'none';
+        });
+        i=0;
+        arrNumbersSections.forEach(el => {
+          if(isNumbersSlider == false){
+            divs[i] = document.createElement('div');
+          numbersSlider.appendChild(divs[i]).appendChild(el);
+          }
+          else{
+            divs[i].appendChild(el);
+          }
+          i++;
+        });
+        if(isNumbersSlider == false){
+        $('.numbers__slider').slick({
+          centerMode: true,
+          infinite: true,
+          centerPadding: '40px',
+          slidesToShow: 1,
+          dots: true,
+          arrows: true,
+          mobileFirst: true
+        });
+        isNumbersSlider = true;
+      }
+      isNumbersMobile = true;
+        console.log(arrNumbersSections);
+      }
+      else if (window.innerWidth > 575 && isNumbersMobile == true) {
+        numbersMainTag = document.querySelector('main');
+        console.log(numbersMainTag);
+        let i = 0;
+        arrNumbersSections.forEach(el => {
+          numbersMainTag.appendChild(el);
+          console.log(el);
+          if (dividers[i]) {
+            dividers[i].style.removeProperty('display');
+            numbersMainTag.appendChild(dividers[i]);
+          }
+          i++;
+        });
+        isNumbersMobile = false;
+        i = 0;
+      }
+    });
+  }
 
 
   let cardsBox = document.querySelectorAll('.cardOne');
-  if (cardsBox) {
+  if (cardsBox[0]) {
     let cardsBox__cards = null;
     let cardsSlider = document.querySelector('.cardsBox__slider');
     let isCreatedCardsSlider = false;
@@ -130,16 +211,9 @@ $(function () {
             i++;
           }
           else {
-            for(let i = 0; i < cardsBox.length; i++){
+            for (let i = 0; i < cardsBox.length; i++) {
               divs[i].appendChild(cardsBox[i]);
             }
-
-            // cardsBox.forEach(el => {
-            //   // console.log(divs[i]);
-            //   console.log(i);
-            //   divs[i].appendChild(el);
-            //   i++;
-            // });
           }
         });
         if (isCreatedCardsSlider == false) {
@@ -168,7 +242,6 @@ $(function () {
     });
   }
 });
-
 
 // component with image and text
 let imageTextComponents = document.querySelectorAll('.imageText');
