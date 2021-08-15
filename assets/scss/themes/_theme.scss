@@ -28,9 +28,9 @@ main {
     text-shadow: 0.1em 0.1em 0 rgba($black, 0.5);
 }
 
-footer{
-    ul{
-        @media(max-width: 1199px){
+footer {
+    ul {
+        @media(max-width: 1199px) {
             padding: 0;
         }
     }
@@ -234,6 +234,7 @@ textarea {
 .section-title {
     font-size: 2.9rem;
     line-height: 1.5;
+    margin-bottom: 1rem;
     &--shadow {
         text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
     }
@@ -263,6 +264,14 @@ textarea {
 
 .text-green {
     color: $green !important;
+}
+
+.text-hover {
+    &-white {
+        &:hover {
+            color: white !important;
+        }
+    }
 }
 
 .divider {
@@ -301,6 +310,34 @@ textarea {
             transform: translateY(-0.4rem) scale(1.05);
             filter: drop-shadow(0.4rem 0.4rem 0 rgba($primary, 0.8));
             transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+    }
+}
+
+.hover-effect-2 {
+    @media(min-width: 768px) {
+        position: relative;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 130%;
+            height: 110%;
+            background-color: $primary;
+            clip-path: polygon(13% 10%, 100% 0, 92% 100%, 0% 90%);
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
+        }
+        &:hover {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            &::after {
+                opacity: 1;
+                transition: opacity 0.3s ease-in;
+            }
         }
     }
 }

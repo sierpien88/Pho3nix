@@ -1,5 +1,9 @@
+.slick-prev, .slick-next{
+    z-index: 100;
+}
+
 .slick-prev {
-    left: 0;
+    left: 0.75rem;
     top: 80%;
 
 
@@ -15,7 +19,7 @@
 }
 
 .slick-next {
-    right: 25px;
+    right: calc(25px + 0.75rem);
     top: 80%;
 
     @media (min-width: 1200px) {

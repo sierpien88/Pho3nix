@@ -8,14 +8,13 @@ $clip-padding-divider: 5.5vw;
 @mixin underline {
     position: relative;
     display: inline;
-    margin-bottom: 4%;
     &::after {
         content: '';
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        padding-top: 4%; //this padding depends of aspect ratio of an image
+        height: 1.5rem;
         background-repeat: no-repeat;
         background-size: 100%;
     }
@@ -30,10 +29,8 @@ $clip-padding-divider: 5.5vw;
     }
     &-violet {
         @include underline;
-        margin-bottom: 7.5%;
         &::after {
             background-image: url(../img/svg/underline-violet_1.svg);
-            padding-top: 7.5%;
         }
     }
 }

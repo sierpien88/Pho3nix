@@ -60,13 +60,38 @@
             height: 280px;
             display: flex;
             align-items: flex-end;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
         }
         &__title {
             margin-top: .75rem;
+            position: relative;
+            display: inline;
+            // @media(max-width: 575px){
+            //     padding-left: 0.75rem;
+            //     margin-left: 0.75rem;
+            // }
             &:after {
-                content: url(../img/podkreslnik.png);
+                content: '';
+                background: url(../img/svg/underline-orange_1.svg);
                 display: block;
+                width: 100%;
+                height: 0.8rem;
+                background-size: 100% 100%;
+                position: absolute;
+                bottom: -0.6rem;
+                left: 0;
             }
+        }
+        &__text {
+            padding-top: 1.2rem;
+            @media(max-width: 575px) {
+                text-align: center;
+            }
+            @media(min-width: 576px) and (max-width: 767px) {}
         }
     }
 }
@@ -74,4 +99,41 @@
 #news {
     margin-top: -4rem;
     padding-top: 4rem;
+    .slick-next, .slick-prev{
+        @media(max-width: 575px){
+            top: 93%;
+        }
+    }
+}
+
+.choose-country {
+    &__country {
+        transition: color 0.3s ease;
+        color: $primary;
+        img {
+            background-color: $grey;
+            padding: 2px;
+        }
+        @media(max-width: 575px) {
+            img {
+                width: 90%;
+            }
+            span {
+                font-size: 1rem;
+            }
+        }
+        &:hover {
+            span {
+                @media(min-width: 768px) {
+                    color: $white !important;
+                    transition: color 0.2s ease;
+                }
+            }
+        }
+    }
+    &__link {
+        @media(max-width: 575px) {
+            flex: 1 0 auto;
+        }
+    }
 }
