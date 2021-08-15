@@ -8,7 +8,6 @@
             position: relative;
             display: flex;
             align-items: center;
-
             &:after {
                 content: '';
                 display: none;
@@ -18,10 +17,114 @@
                 height: 41px;
                 width: 1px;
                 margin: 0 10px 0 20px;
-
                 @media (min-width: 1200px) {
                     display: block;
                 }
+            }
+        }
+    }
+    .your-clock {
+        font-size: 2.4rem;
+        min-height: 118px;
+        max-height: 118px;
+        @media(max-width: 991px) {
+            font-size: 3.5vw;
+            height: 10.4vw;
+            padding: 1.5625rem 1.525rem;
+        }
+        @media(max-width: 767px) {
+            height: 15vw;
+            min-height: 65px;
+            padding: 0 2vw;
+            display: flex !important;
+            align-items: center;
+        }
+    }
+    .navbar-language {
+        // margin-right: 1rem;
+        @media(max-width: 575px) {
+            margin: 0 1vw;
+        }
+        img {
+            background-color: $grey;
+            padding: 2px;
+            max-height: 36px;
+            max-width: 100%;
+            @media(max-width: 767px) {
+                height: 10vw;
+            }
+            @media(max-width: 575px) {
+                height: 6vw;
+            }
+        }
+    }
+    .navbar-collapse {
+        @media(min-width: 1200px) {
+            flex: 0 0 auto;
+        }
+        a.nav-link {
+            position: relative;
+            z-index: 1;
+            @media(min-width: 1200px) {
+                &:hover {
+                    color: $white;
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: calc(100% - 1.8em);
+                        height: 100%;
+                        background-color: $orange;
+                        z-index: -1;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: skewX(342deg);
+                    }
+                }
+            }
+            @media(max-width: 1199px){
+                font-size: calc(1.4rem + 2vw);
+                padding: 2vw;
+            }
+        }
+    }
+    .navbar-home {
+        padding: 1rem;
+        img {
+            height: 10vw;
+            max-height: 36px;
+            max-width: 100%;
+            @media(max-width: 575px) {
+                height: 6vw;
+            }
+        }
+        @media(max-width: 575px) {
+            padding: 1vw;
+        }
+    }
+    .navbar-toggler {
+        border: 0;
+        display: flex;
+        align-items: center;
+        &:focus,
+        &:active {
+            border: 0;
+            outline: 0;
+            color: transparent;
+        }
+        @media(max-width: 767px) {
+            padding: 0 0 0 1rem;
+        }
+        @media(max-width: 575px) {
+            padding: 0 0 0 1vw;
+        }
+        .hamburger-box {
+            max-width: 50px;
+            width: 8vw;
+            .hamburger-inner,
+            .hamburger-inner::before,
+            .hamburger-inner::after {
+                width: 100%;
             }
         }
     }
@@ -29,7 +132,12 @@
 
 .navbar-brand {
     .img-fluid {
-        max-width: 97px;
+        // max-width: 97px;
+        position: relative;
+    }
+    @media (max-width: 768px) {
+        margin: 0;
+        width: 26.9vw;
     }
 }
 

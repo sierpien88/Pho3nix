@@ -1,4 +1,7 @@
 $(function () {
+  $('.hamburger').click(()=>{
+    $('.hamburger').toggleClass('is-active');
+  });
   /*
 * Replace all SVG images with inline SVG
 */

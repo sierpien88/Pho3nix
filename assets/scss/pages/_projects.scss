@@ -119,6 +119,9 @@ $clip-padding-divider: 5.5vw;
     &-white {
         background-color: $white;
     }
+    &-transparent{
+        background-color: unset;
+    }
 }
 
 .bg {
@@ -126,6 +129,11 @@ $clip-padding-divider: 5.5vw;
         @include bg-colors;
         &-sm {
             @media(min-width: 576px) {
+                @include bg-colors;
+            }
+        }
+        &-md {
+            @media(min-width: 768px) {
                 @include bg-colors;
             }
         }
@@ -141,7 +149,7 @@ $clip-padding-divider: 5.5vw;
         z-index: 0;
         img {
             transition: transform 0.3s ease-in, filter 0.3s ease-in;
-            @media(min-width: 768px){
+            @media(min-width: 768px) {
                 transform: translate( 0, 0) scale(1);
             }
         }

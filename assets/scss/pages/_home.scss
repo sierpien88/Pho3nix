@@ -11,11 +11,21 @@
             top: 2rem;
             font-size: 1rem;
             right: 10%;
+            @media(max-width: 575px) {
+                top: 0.8rem;
+                font-size: 1rem;
+                right: 5%;
+            }
         }
         &--red {
             top: 5rem;
             font-size: 1rem;
             right: 11%;
+            @media(max-width: 575px) {
+                top: 4rem;
+                font-size: 0.8rem;
+                right: 5%;
+            }
         }
         @media (min-width: 600px) {
             &--yellow {
@@ -55,6 +65,11 @@
 }
 
 #initiatives {
+    &.bg-violet {
+        @media(max-width: 768px) {
+            clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 93%);
+        }
+    }
     .one-initiative {
         &__img-container {
             height: 280px;
@@ -99,8 +114,9 @@
 #news {
     margin-top: -4rem;
     padding-top: 4rem;
-    .slick-next, .slick-prev{
-        @media(max-width: 575px){
+    .slick-next,
+    .slick-prev {
+        @media(max-width: 575px) {
             top: 93%;
         }
     }
@@ -108,7 +124,7 @@
 
 .choose-country {
     &__country {
-        transition: color 0.3s ease;
+        transition: color 0.2s ease;
         color: $primary;
         img {
             background-color: $grey;
@@ -126,7 +142,7 @@
             span {
                 @media(min-width: 768px) {
                     color: $white !important;
-                    transition: color 0.2s ease;
+                    transition: color 0.15s ease;
                 }
             }
         }

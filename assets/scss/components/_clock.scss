@@ -1,56 +1,55 @@
 .your-clock {
     background: $primary;
-    padding: 25px 10px;
+    padding: 1.5625em 0.625em;
     margin: 0;
-
+    font-size: 3rem;
 }
 
 .flip-clock-divider {
     width: 0;
-
-    &.days {
-        .flip-clock-label {
-            right: -55px;
-        }
-    }
-
-    &.minutes {
-        .flip-clock-label {
-            right: -65px;
-        }
-    }
-
+    height: 0;
+    top: 0;
+    display: block;
+    // &.days {
+    //     .flip-clock-label {
+    //         // right: -5.5542em;
+    //     }
+    // }
+    // &.minutes {
+    //     .flip-clock-label {
+    //         left: 5.8em;
+    //         top: 3.8em;
+    //     }
+    // }
     .flip-clock-label {
-        top: unset;
-        bottom: 1em;
-        right: -65px;
-        font-size: 11px;
+        left: 5.8em;
+        top: 3.8em;
+        font-size: 0.229em;
         color: rgba($white, 0.4);
         font-family: 'Antonio';
         text-transform: uppercase;
         text-align: center;
+        transform: translateX(-50%);
     }
 }
 
 .flip-clock-wrapper {
     width: auto;
-
     ul {
-        height: 64px;
-        width: 32px;
+        height: 1.33em;
+        width: 0.666em;
         border-radius: 2px;
-        margin: 8px;
-
+        margin: 0.1616em;
+        padding-left: 1em;
+        font-size: 1em;
         li {
-            width: 28px;
-
+            width: 100%;
             a {
                 background: $primary;
-
                 div {
                     outline: 2px solid $primary;
-                    width: 70%;
-
+                    width: 100%;
+                    font-size: 1em;
                     &.up {
                         &:after {
                             height: 2px;
@@ -58,40 +57,34 @@
                             color: $primary;
                         }
                     }
-
                     &.down {
                         border-bottom-left-radius: 2px;
                         border-bottom-right-radius: 2px;
                     }
-
                     div {
-
                         &.inn {
                             color: $white;
                             font-family: 'Antonio';
-                            font-size: 18px;
-                            line-height: 55px;
+                            font-size: 1em;
+                            line-height: 1.2;
                             border-radius: 2px;
                         }
                     }
                 }
             }
         }
-
         &:first-of-type,
         &:nth-of-type(2) {
             li a div div.inn {
                 background: $orange;
             }
         }
-
         &:nth-of-type(3),
         &:nth-of-type(4) {
             li a div div.inn {
                 background: $red;
             }
         }
-
         &:nth-of-type(5),
         &:nth-of-type(6) {
             li a div div.inn {
@@ -102,7 +95,6 @@
 }
 
 .flip-clock-dot {
-
     &.top,
     &.bottom {
         display: none;
@@ -111,7 +103,6 @@
 
 .flip-clock-active {
     position: relative;
-
     &:before {
         content: '';
         position: absolute;
@@ -123,7 +114,6 @@
         background: rgba(255, 255, 255, 0.5);
         transform: rotate(90deg);
     }
-
     &:after {
         content: '';
         position: absolute;
@@ -134,32 +124,27 @@
         display: block;
         background: rgba(255, 255, 255, 0.5);
         transform: rotate(90deg);
-
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 768px) {
     .your-clock {
         clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
-        padding: 25px 50px;
+        padding: 1.5625rem 3.125rem;
+        font-size: 3rem;
     }
-
     .flip-clock-wrapper {
         width: auto;
-
         ul {
-
+            font-size: 1em;
             li {
                 width: 100%;
-
                 a div {
                     width: 100%;
-
-
+                    font-size: 1em;
                     div {
-
                         &.inn {
-                            font-size: 48px;
+                            font-size: 1em;
                         }
                     }
                 }
