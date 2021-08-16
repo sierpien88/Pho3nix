@@ -22,9 +22,10 @@
     //     }
     // }
     .flip-clock-label {
-        left: 5.8em;
-        top: 3.8em;
-        font-size: 0.229em;
+        left: 4.5em;
+        right: unset;
+        top: 2.9em;
+        font-size: 0.3em;
         color: rgba($white, 0.4);
         font-family: 'Antonio';
         text-transform: uppercase;
@@ -129,7 +130,7 @@
 
 @media (min-width: 768px) {
     .your-clock {
-        clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+        clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
         padding: 1.5625rem 3.125rem;
         font-size: 3rem;
     }

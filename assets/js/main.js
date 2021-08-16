@@ -1,5 +1,5 @@
 $(function () {
-  $('.hamburger').click(()=>{
+  $('.hamburger').click(() => {
     $('.hamburger').toggleClass('is-active');
   });
   /*
@@ -48,14 +48,14 @@ $(function () {
     dots: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
 
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1
         }
@@ -70,17 +70,30 @@ $(function () {
     dots: true
   });
 
-  var $status = $('.counter-info');
-  var $slickElement = $('.gallery-carousel');
 
-  $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+  // var $status = $('.counter-info');
+  // var $slickElement = $('.gallery-carousel');
+  // $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+  //   //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+  //   var i = (currentSlide ? currentSlide : 0) + 1;
+  //   $status.html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  // });
+  // $slickElement.slick({
+  //   centerMode: true,
+  //   infinite: true,
+  //   centerPadding: '40px',
+  //   slidesToShow: 1,
+  //   dots: false,
+  //   arrows: true
+  // });
+
+
+  $('#camps-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
     //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
     var i = (currentSlide ? currentSlide : 0) + 1;
-    $status.html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+    $('#camps-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
   });
-
-
-  $slickElement.slick({
+  $('#camps-gallery .gallery-carousel').slick({
     centerMode: true,
     infinite: true,
     centerPadding: '40px',
@@ -89,6 +102,82 @@ $(function () {
     arrows: true
   });
 
+
+  $('#workshops-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    $('#workshops-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+  $('#workshops-gallery .gallery-carousel').slick({
+    centerMode: true,
+    infinite: true,
+    centerPadding: '40px',
+    slidesToShow: 1,
+    dots: false,
+    arrows: true
+  });
+
+  $('#competitions-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    $('#competitions-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+  $('#competitions-gallery .gallery-carousel').slick({
+    centerMode: true,
+    infinite: true,
+    centerPadding: '40px',
+    slidesToShow: 1,
+    dots: false,
+    arrows: true
+  });
+  
+  $('#news-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    $('#news-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+  $('#news-gallery .gallery-carousel').slick({
+    centerMode: true,
+    infinite: true,
+    centerPadding: '40px',
+    slidesToShow: 1,
+    dots: false,
+    arrows: true
+  });
+
+  $('#foundation-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    $('#foundation-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+  $('#foundation-gallery .gallery-carousel').slick({
+    centerMode: true,
+    infinite: true,
+    centerPadding: '40px',
+    slidesToShow: 1,
+    dots: false,
+    arrows: true
+  });
+
+  $('#home-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    $('#home-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+  $('#home-gallery .gallery-carousel').slick({
+    centerMode: true,
+    infinite: true,
+    centerPadding: '40px',
+    slidesToShow: 1,
+    dots: false,
+    arrows: true
+  });
+
+
+
+
+
+  // procedure to put divs inside slider on mobile 
   let arrNumbersSections = document.querySelectorAll('.js-numbers');
   if (arrNumbersSections[0]) {
     console.log(arrNumbersSections);
@@ -126,30 +215,30 @@ $(function () {
         dividers.forEach(el => {
           el.style.display = 'none';
         });
-        i=0;
+        i = 0;
         arrNumbersSections.forEach(el => {
-          if(isNumbersSlider == false){
+          if (isNumbersSlider == false) {
             divs[i] = document.createElement('div');
-          numbersSlider.appendChild(divs[i]).appendChild(el);
+            numbersSlider.appendChild(divs[i]).appendChild(el);
           }
-          else{
+          else {
             divs[i].appendChild(el);
           }
           i++;
         });
-        if(isNumbersSlider == false){
-        $('.numbers__slider').slick({
-          centerMode: true,
-          infinite: true,
-          centerPadding: '40px',
-          slidesToShow: 1,
-          dots: true,
-          arrows: true,
-          mobileFirst: true
-        });
-        isNumbersSlider = true;
-      }
-      isNumbersMobile = true;
+        if (isNumbersSlider == false) {
+          $('.numbers__slider').slick({
+            centerMode: true,
+            infinite: true,
+            centerPadding: '40px',
+            slidesToShow: 1,
+            dots: true,
+            arrows: true,
+            mobileFirst: true
+          });
+          isNumbersSlider = true;
+        }
+        isNumbersMobile = true;
         console.log(arrNumbersSections);
       }
       else if (window.innerWidth > 575 && isNumbersMobile == true) {
@@ -171,7 +260,7 @@ $(function () {
     });
   }
 
-
+  // procedure to put cards to slider on mobile
   let cardsBox = document.querySelectorAll('.cardOne');
   if (cardsBox[0]) {
     let cardsBox__cards = null;
@@ -276,19 +365,6 @@ if (imageTextComponents[0]) {
     });
   });
 }
-
-
-
-// component cardBox
-// let cardsBox = document.querySelector('.cardsBox');
-// if (cardsBox) {
-//   let cardsSlick = document.querySelector('');
-//   function changeCardsBox(cardBox) {
-//     let isMobile = false;
-//   }
-//   // if(window.innerWidth < 576 && ){
-//   // }
-// }
 
 //autoresize textarea on input
 const tx = document.getElementsByTagName("textarea");

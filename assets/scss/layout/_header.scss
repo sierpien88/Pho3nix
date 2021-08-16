@@ -2,12 +2,13 @@
     .navbar-nav {
         .nav-link {
             font-family: 'Roboto';
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 900;
             color: $font-black;
             position: relative;
             display: flex;
             align-items: center;
+            z-index: 1;
             &:after {
                 content: '';
                 display: none;
@@ -20,6 +21,35 @@
                 @media (min-width: 1200px) {
                     display: block;
                 }
+            }
+            @media(min-width: 1200px) {
+                &::before {
+                    content: '';
+                    display: block;
+                    width: calc(100% - 1.8em);
+                    height: 100%;
+                    background-color: $orange;
+                    z-index: -1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: skewX(342deg);
+                    opacity: 0;
+                    transition: opacity 0.1s ease-out;
+                }
+                &:hover {
+                    color: $white;
+                    &::before {
+                        opacity: 1;
+                        transition: opacity 0.15s ease-in;
+                    }
+                }
+            }
+            @media(max-width: 1199px) {
+                font-size: calc(1.4rem + 2vw);
+                padding: 3.5vw 1rem;
+                margin: 2vw 0;
+                color: $primary;
             }
         }
     }
@@ -41,7 +71,6 @@
         }
     }
     .navbar-language {
-        // margin-right: 1rem;
         @media(max-width: 575px) {
             margin: 0 1vw;
         }
@@ -50,6 +79,7 @@
             padding: 2px;
             max-height: 36px;
             max-width: 100%;
+            transition: background-color 0.05s ease-out;
             @media(max-width: 767px) {
                 height: 10vw;
             }
@@ -57,39 +87,30 @@
                 height: 6vw;
             }
         }
+        &:hover {
+            img {
+                background-color: $orange;
+                transition: background-color 0.15s ease-in;
+            }
+        }
     }
     .navbar-collapse {
         @media(min-width: 1200px) {
             flex: 0 0 auto;
         }
-        a.nav-link {
-            position: relative;
-            z-index: 1;
-            @media(min-width: 1200px) {
-                &:hover {
-                    color: $white;
-                    &::before {
-                        content: '';
-                        display: block;
-                        width: calc(100% - 1.8em);
-                        height: 100%;
-                        background-color: $orange;
-                        z-index: -1;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        transform: skewX(342deg);
-                    }
-                }
-            }
-            @media(max-width: 1199px){
-                font-size: calc(1.4rem + 2vw);
-                padding: 2vw;
-            }
-        }
     }
     .navbar-home {
         padding: 1rem;
+        path {
+            fill: $primary;
+            transition: fill 0.05s ease-out;
+        }
+        &:hover {
+            path {
+                fill: $orange;
+                transition: fill 0.15s ease-in;
+            }
+        }
         img {
             height: 10vw;
             max-height: 36px;
@@ -132,7 +153,6 @@
 
 .navbar-brand {
     .img-fluid {
-        // max-width: 97px;
         position: relative;
     }
     @media (max-width: 768px) {

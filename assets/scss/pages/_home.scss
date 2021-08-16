@@ -103,7 +103,7 @@
         }
         &__text {
             padding-top: 1.2rem;
-            @media(max-width: 575px) {
+            @media(max-width: 767px) {
                 text-align: center;
             }
             @media(min-width: 576px) and (max-width: 767px) {}
@@ -119,6 +119,9 @@
         @media(max-width: 575px) {
             top: 93%;
         }
+    }
+    .news__image{
+        clip-path: polygon(4.2% 8.6%, 100% 0, 99.2% 88.8%, 0 100%);
     }
 }
 
