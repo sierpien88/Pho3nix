@@ -1,10 +1,12 @@
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// toggle mobile haburger button
 $(function () {
   $('.hamburger').click(() => {
     $('.hamburger').toggleClass('is-active');
   });
-  /*
-* Replace all SVG images with inline SVG
-*/
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  // Replace all SVG images with inline SVG
   $('img.svg').each((i, e) => {
 
     const $img = $(e);
@@ -40,7 +42,8 @@ $(function () {
       $img.replaceWith($svg);
     }, 'xml');
   });
-
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  // slider for initiatives
   $('#all-initiatives').slick({
     infinite: true,
     slidesToShow: 3,
@@ -62,122 +65,38 @@ $(function () {
       }
     ]
   });
-
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  // slider for news
   $('#news-container').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: true
   });
-
-
-  // var $status = $('.counter-info');
-  // var $slickElement = $('.gallery-carousel');
-  // $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-  //   //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-  //   var i = (currentSlide ? currentSlide : 0) + 1;
-  //   $status.html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
-  // });
-  // $slickElement.slick({
-  //   centerMode: true,
-  //   infinite: true,
-  //   centerPadding: '40px',
-  //   slidesToShow: 1,
-  //   dots: false,
-  //   arrows: true
-  // });
-
-
-  $('#camps-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $('#camps-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  ///////////////////////////////////////////////////////////////////////////////
+  // gallery carousels sliders
+  let i = 0;
+  $('.gallery-carousel').each(function (key, item) {
+    let id = `gallery-carousel-${i}`;
+    $(item).attr('id', id);
+    $('#' + id).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+      //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+      var j = (currentSlide ? currentSlide : 0) + 1;
+      $(`#${id} ~ .counter-info`).html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+    });
+    $('#' + id).slick({
+      // centerMode: true,
+      infinite: true,
+      centerPadding: '40px',
+      slidesToShow: 1,
+      dots: false,
+      arrows: true
+    });
+    i++;
   });
-  $('#camps-gallery .gallery-carousel').slick({
-    centerMode: true,
-    infinite: true,
-    centerPadding: '40px',
-    slidesToShow: 1,
-    dots: false,
-    arrows: true
-  });
-
-
-  $('#workshops-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $('#workshops-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
-  });
-  $('#workshops-gallery .gallery-carousel').slick({
-    centerMode: true,
-    infinite: true,
-    centerPadding: '40px',
-    slidesToShow: 1,
-    dots: false,
-    arrows: true
-  });
-
-  $('#competitions-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $('#competitions-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
-  });
-  $('#competitions-gallery .gallery-carousel').slick({
-    centerMode: true,
-    infinite: true,
-    centerPadding: '40px',
-    slidesToShow: 1,
-    dots: false,
-    arrows: true
-  });
-  
-  $('#news-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $('#news-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
-  });
-  $('#news-gallery .gallery-carousel').slick({
-    centerMode: true,
-    infinite: true,
-    centerPadding: '40px',
-    slidesToShow: 1,
-    dots: false,
-    arrows: true
-  });
-
-  $('#foundation-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $('#foundation-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
-  });
-  $('#foundation-gallery .gallery-carousel').slick({
-    centerMode: true,
-    infinite: true,
-    centerPadding: '40px',
-    slidesToShow: 1,
-    dots: false,
-    arrows: true
-  });
-
-  $('#home-gallery .gallery-carousel').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $('#home-gallery .counter-info').html('<span class="current_slide">' + i + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
-  });
-  $('#home-gallery .gallery-carousel').slick({
-    centerMode: true,
-    infinite: true,
-    centerPadding: '40px',
-    slidesToShow: 1,
-    dots: false,
-    arrows: true
-  });
-
-
-
-
-
-  // procedure to put divs inside slider on mobile 
+  i = 0;
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  // procedure to put divs with numbers data inside slider on mobile 
   let arrNumbersSections = document.querySelectorAll('.js-numbers');
   if (arrNumbersSections[0]) {
     console.log(arrNumbersSections);
@@ -209,7 +128,6 @@ $(function () {
       isNumbersSlider = true;
       isNumbersMobile = true;
     }
-
     window.addEventListener('resize', () => {
       if (window.innerWidth < 576 && isNumbersMobile == false) {
         dividers.forEach(el => {
@@ -259,7 +177,7 @@ $(function () {
       }
     });
   }
-
+  ///////////////////////////////////////////////////////////////////////////////////////////
   // procedure to put cards to slider on mobile
   let cardsBox = document.querySelectorAll('.cardOne');
   if (cardsBox[0]) {
@@ -334,7 +252,7 @@ $(function () {
     });
   }
 });
-
+///////////////////////////////////////////////////////////////////////////////////////////
 // component with image and text
 let imageTextComponents = document.querySelectorAll('.imageText');
 if (imageTextComponents[0]) {
@@ -365,7 +283,7 @@ if (imageTextComponents[0]) {
     });
   });
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////
 //autoresize textarea on input
 const tx = document.getElementsByTagName("textarea");
 for (let i = 0; i < tx.length; i++) {
@@ -376,4 +294,4 @@ function OnInput() {
   this.style.height = "auto";
   this.style.height = (this.scrollHeight) + "px";
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////
