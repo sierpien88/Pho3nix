@@ -75,11 +75,14 @@
     }
 
     .slick-prev {
-        right: 13rem;
+        right: 14rem;
         bottom: 40px;
         left: unset;
         top: unset;
         z-index: 3;
+        @media(max-width: 1199px){
+            right: 16.5rem;
+        }
     }
 }
 

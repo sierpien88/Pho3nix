@@ -171,8 +171,8 @@ textarea {
         background: url(../img/bg-orange-numbers.png) center center no-repeat;
         padding: .5rem 1rem 0rem 1rem;
     }
-    @media (min-width: 600px) {
-        padding: 1rem 2rem 0rem 2rem;
+    @media (min-width: 768px) {
+        padding: 0.5rem;
     }
 }
 
@@ -183,7 +183,7 @@ textarea {
     padding: .5rem 2rem 1rem 2rem;
     &--numbers {
         background: url(../img/bg-czerwony-numbers.png) center center no-repeat;
-        padding: .5rem 1rem 0rem 1rem;
+        padding: .5rem;
     }
     &--whole-section-color {
         background: $red;
@@ -195,11 +195,11 @@ textarea {
     background: url(../img/bg-zielony.png) center center no-repeat;
     background-size: 100% 100%;
     width: fit-content;
-    padding: .5rem 2rem 0rem 2rem;
+    padding: 0.5rem;
     &--numbers {
         background: url(../img/bg-green-numbers.svg) center no-repeat;
         background-size: cover;
-        padding: .5rem 1rem 0rem 1rem;
+        padding: 0.5rem;
     }
 }
 
@@ -229,7 +229,7 @@ textarea {
     &--numbers-long {
         background: url(../img/bg-violet-numbers-long.svg) center no-repeat;
         background-size: 100%;
-        padding: .5rem 1rem 0rem 1rem;
+        padding: .5rem 1rem 0 1rem;
     }
 }
 
@@ -243,7 +243,7 @@ textarea {
     line-height: 1.5;
     margin-bottom: 1rem;
     &--shadow {
-        text-shadow: 10px 3px 0px rgba(0, 0, 0, 1);
+        text-shadow: 0.1em 0.1em 0 $black;
     }
     @media(max-width: 991px) {
         font-size: calc(1rem + 3vw);
