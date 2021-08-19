@@ -115,7 +115,7 @@ $(function () {
     arrows: true,
     // centerPadding: '40px',
     dots: false,
-    fade: true,
+    // fade: true,
     asNavFor: '.gallery-carousel__nav'
   });
   $('.gallery-carousel__nav').slick({
