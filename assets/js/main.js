@@ -295,3 +295,22 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+$('.new-gallery__big').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.new-gallery__nav'
+});
+$('.new-gallery__nav').slick({
+  slidesToShow: 4,
+  // slidesToScroll: 4,
+  fade: true,
+  arrows: false,
+  asNavFor: '.new-gallery__big',
+  dots: false,
+  centerMode: false,
+  focusOnSelect: true
+});
