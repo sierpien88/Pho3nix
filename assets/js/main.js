@@ -1,4 +1,38 @@
+// this script functions
+function getIndexWithClass(className, arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].classList.contains(className)) {
+      return i;
+    }
+  }
+  return 0;
+}
 
+function showThumbs(arr) {
+  let currentIndex = getIndexWithClass('slick-current', arr);
+  let startGroupIndex = currentIndex - (currentIndex % 4);
+  // for (let i = startGroupIndex; i < startGroupIndex + 4; i++) {
+  //   if (arr[i]) {
+  //     arr[i].style['opacity'] = '1';
+  //   }
+  // }
+  // alert('start');
+  console.log(startGroupIndex);
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].style['display'] = 'none';
+    arr[i].style['opacity'] = '0';
+
+  }
+  for (let i = startGroupIndex; i < startGroupIndex + 4; i++) {
+    // console.log('enter loop');
+    // console.log(startGroupIndex);
+    // console.log(arr[i]);
+    if (arr[i]) {
+      arr[i].style['display'] = 'block';
+      arr[i].style['opacity'] = '1';
+    }
+  }
+}
 ///////////////////////////////////////////////////////////////////////////////////////////
 // toggle mobile haburger button
 $(function () {
@@ -65,6 +99,40 @@ $(function () {
       }
     ]
   });
+  ///////////////////////////////////////////////////////////////////////////////////////////
+
+  let arrGalleryThumbs = document.querySelectorAll('.gallery-carousel__nav .gallery-carousel__thumbnail');
+  $('.gallery-carousel__big').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+    console.log(event);
+    // showThumbs(arrGalleryThumbs);
+    var j = (currentSlide ? currentSlide : 0) + 1;
+    $('.gallery-carousel__big ~ .counter-info').html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+  $('.gallery-carousel__big').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    // centerPadding: '40px',
+    dots: false,
+    fade: true,
+    asNavFor: '.gallery-carousel__nav'
+  });
+  $('.gallery-carousel__nav').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    rows: 2,
+    slidesPerRow: 2,
+    fade: true,
+    arrows: false,
+    asNavFor: '.gallery-carousel__big',
+    dots: false,
+    centerMode: false,
+    focusOnSelect: true
+  });
+
+
+
   ///////////////////////////////////////////////////////////////////////////////////////////
   // slider for news
   $('#news-container').slick({
@@ -295,28 +363,24 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
+// console.log(arrGalleryThumbs);
 
-$('.gallery-carousel__big').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-  var j = (currentSlide ? currentSlide : 0) + 1;
-  $('.gallery-carousel__big ~ .counter-info').html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
-});
-$('.gallery-carousel__big').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-  centerPadding: '40px',
-  dots: false,
-  fade: true,
-  asNavFor: '.gallery-carousel__nav'
-});
-$('.gallery-carousel__nav').slick({
-  slidesToShow: 4,
-  slidesToScroll: 4,
-  fade: true,
-  arrows: false,
-  asNavFor: '.gallery-carousel__big',
-  dots: false,
-  centerMode: false,
-  focusOnSelect: true
-});
+// let arrGalleryThumbsGroups = {};
+// let k = 0;
+// for (let i = 0; i < arrGalleryThumbs.length; i = j + 1) {
+//   for (let j = i; j < j + 4; j++) {
+//     if (arrGalleryThumbs[j]) {
+//       arrGalleryThumbsGroups[k] = {
+//         thumb[j % 4] = arrGalleryThumbs[j];
+//       }
+//     }
+//   }
+//   k++;
+// };
+//////////////////////////////////////////////////
+
+/////////////////////////////////////////////////
+
+// console.log($('.gallery-carousel__nav'));
+
+//////////////////////////////////////////////////
