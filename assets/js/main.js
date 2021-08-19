@@ -105,7 +105,7 @@ $(function () {
   $('.gallery-carousel__big').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
     //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
     console.log(event);
-    // showThumbs(arrGalleryThumbs);
+    showThumbs(arrGalleryThumbs);
     var j = (currentSlide ? currentSlide : 0) + 1;
     $('.gallery-carousel__big ~ .counter-info').html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
   });
@@ -119,10 +119,10 @@ $(function () {
     asNavFor: '.gallery-carousel__nav'
   });
   $('.gallery-carousel__nav').slick({
-    slidesToShow: 4,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    rows: 2,
-    slidesPerRow: 2,
+    // rows: 2,
+    // slidesPerRow: 2,
     fade: true,
     arrows: false,
     asNavFor: '.gallery-carousel__big',

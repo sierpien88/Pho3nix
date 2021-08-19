@@ -33,7 +33,7 @@
         margin: 0 !important;
         padding: 31.5% 0 0 !important;
         left: 0 !important;
-        opacity: 1;
+        opacity: 1 !important;
         position: relative !important;
         background-color: $orange;
         // display: none;
@@ -47,13 +47,13 @@
             height: 100% !important;
             object-fit: cover !important;
             clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+            transition: clip-path 0.15s ease-in;
         }
         // &.slick-active{
         //     display: block !important;
         // }
         &.slick-current {
-            opacity: 1;
-            img{
+            img {
                 transition: clip-path 0.15s ease-in;
             }
             &:nth-of-type(1n) {
