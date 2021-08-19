@@ -296,20 +296,26 @@ function OnInput() {
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-
-$('.new-gallery__big').slick({
+$('.gallery-carousel__big').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+  var j = (currentSlide ? currentSlide : 0) + 1;
+  $('.gallery-carousel__big ~ .counter-info').html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+});
+$('.gallery-carousel__big').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: false,
+  arrows: true,
+  centerPadding: '40px',
+  dots: false,
   fade: true,
-  asNavFor: '.new-gallery__nav'
+  asNavFor: '.gallery-carousel__nav'
 });
-$('.new-gallery__nav').slick({
+$('.gallery-carousel__nav').slick({
   slidesToShow: 4,
-  // slidesToScroll: 4,
+  slidesToScroll: 4,
   fade: true,
   arrows: false,
-  asNavFor: '.new-gallery__big',
+  asNavFor: '.gallery-carousel__big',
   dots: false,
   centerMode: false,
   focusOnSelect: true
