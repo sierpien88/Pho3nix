@@ -27,17 +27,24 @@
 }
 
 .gallery-carousel__nav {
+    height: 100%;
+    opacity: 0;
+    .slick-list {
+        height: 100%;
+    }
     .gallery-carousel__thumbnail.slick-slide {
         width: 50% !important;
         height: 0 !important;
         margin: 0 !important;
-        padding: 31.5% 0 0 !important;
+        padding: 31.25% 0 0 !important;
         left: 0 !important;
         opacity: 1 !important;
         position: relative !important;
         background-color: $orange;
         cursor: pointer;
-        // display: none;
+        transition: all 0.3s ease-in-out;
+        display: none;
+        overflow: hidden;
         img {
             position: absolute !important;
             top: 0 !important;

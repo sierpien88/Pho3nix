@@ -1,5 +1,6 @@
 // this script functions
 function getIndexWithClass(className, arr) {
+  // get current thumbnail if slick is not initiated then return index 0
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].classList.contains(className)) {
       return i;
@@ -7,29 +8,34 @@ function getIndexWithClass(className, arr) {
   }
   return 0;
 }
-
+let lastStartGroupIndex = 0;
+let speedChangeThumbsGroup = 450;
 function showThumbs(arr) {
   let currentIndex = getIndexWithClass('slick-current', arr);
   let startGroupIndex = currentIndex - (currentIndex % 4);
-  // for (let i = startGroupIndex; i < startGroupIndex + 4; i++) {
-  //   if (arr[i]) {
-  //     arr[i].style['opacity'] = '1';
-  //   }
-  // }
-  // alert('start');
-  console.log(startGroupIndex);
-  for (let i = 0; i < arr.length; i++) {
-    arr[i].style['display'] = 'none';
-    arr[i].style['opacity'] = '0';
 
+  if (startGroupIndex != lastStartGroupIndex) {
+    lastStartGroupIndex = startGroupIndex;
+    arr[0].closest('.gallery-carousel__nav').style['opacity'] = '0';
+    setTimeout(() => {
+      for (let i = 0; i < arr.length; i++) {
+        arr[i].style['display'] = 'none';
+      }
+      for (let i = startGroupIndex; i < startGroupIndex + 4; i++) {
+        if (arr[i]) {
+          arr[i].style['display'] = 'block';
+          arr[0].closest('.gallery-carousel__nav').style['opacity'] = '1';
+        }
+      }
+    }, speedChangeThumbsGroup);
   }
-  for (let i = startGroupIndex; i < startGroupIndex + 4; i++) {
-    // console.log('enter loop');
-    // console.log(startGroupIndex);
-    // console.log(arr[i]);
-    if (arr[i]) {
-      arr[i].style['display'] = 'block';
-      arr[i].style['opacity'] = '1';
+  else {
+    for (let i = startGroupIndex; i < startGroupIndex + 4; i++) {
+      if (arr[i]) {
+        arr[0].closest('.gallery-carousel__nav').style['opacity'] = '1';
+        arr[0].closest('.gallery-carousel__nav').style['transition'] = `opacity ${speedChangeThumbsGroup}ms ease`;
+        arr[i].style['display'] = 'block';
+      }
     }
   }
 }
