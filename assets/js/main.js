@@ -11,14 +11,14 @@ function getIndexWithClass(className, arr) {
   return 0;
 }
 
-let lastStartGroupIndex = 0; // previous thumbnails group start index
-let speedChangeThumbsGroup = 200; // speed of fade transition on change
+// let lastStartGroupIndex = 0; // previous thumbnails group start index
+let speedChangeThumbsGroup = 200; // speed of fade transition on change slide
 function showThumbs(arr) {
   let currentIndex = getIndexWithClass('slick-current', arr);
   let startGroupIndex = currentIndex - (currentIndex % 4);
   // if other 4 thumbnails needs to be shown
-  if (startGroupIndex != lastStartGroupIndex) {
-    lastStartGroupIndex = startGroupIndex;
+  if (startGroupIndex != arr.lastStartGroupIndex) {
+    arr.lastStartGroupIndex = startGroupIndex;
     // hide slider when changing group thumbnails occurs
     arr[0].closest('.gallery-carousel__nav').style['opacity'] = '0';
     setTimeout(() => {
@@ -47,6 +47,50 @@ function showThumbs(arr) {
     }
   }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+let arrGallerySingleThumbs = new Array;
+let arrGalleryNav = document.querySelectorAll('.gallery-carousel__nav');
+let arrGalleryBig = document.querySelectorAll('.gallery-carousel__big');
+
+for (let i = 0; i < arrGalleryBig.length; i++) {
+  let bigId = `gallery-carousel__big-${i + 1}`;
+  let navId = `gallery-carousel__nav-${i + 1}`;
+  arrGalleryNav[i].setAttribute('id', navId);
+  arrGalleryBig[i].setAttribute('id', bigId);
+  arrGallerySingleThumbs[i] = document.querySelectorAll(`#${navId} .gallery-carousel__thumbnail`);
+  arrGallerySingleThumbs[i] = Array.prototype.slice.call(arrGallerySingleThumbs[i]);
+  arrGallerySingleThumbs[i].lastStartGroupIndex = i;
+  arrGallerySingleThumbs[navId] = i;
+  $(`#${bigId}`).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+    showThumbs(arrGallerySingleThumbs[arrGallerySingleThumbs[navId]]);
+    var j = (currentSlide ? currentSlide : 0) + 1;
+    $(`#${bigId} ~ .counter-info`).html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+  $(`#${bigId}`).slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    // centerPadding: '40px',
+    dots: false,
+    // fade: true,
+    asNavFor: `#${navId}`
+  });
+  $(`#${navId}`).slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // rows: 2,
+    // slidesPerRow: 2,
+    fade: true,
+    arrows: false,
+    asNavFor: `#${bigId}`,
+    dots: false,
+    centerMode: false,
+    focusOnSelect: true
+  });
+};
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 // toggle mobile haburger button
 $(function () {
@@ -112,37 +156,6 @@ $(function () {
       }
     ]
   });
-  ///////////////////////////////////////////////////////////////////////////////////////////
-  let arrGalleryThumbs = document.querySelectorAll('.gallery-carousel__nav .gallery-carousel__thumbnail');
-  $('.gallery-carousel__big').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    showThumbs(arrGalleryThumbs);
-    var j = (currentSlide ? currentSlide : 0) + 1;
-    $('.gallery-carousel__big ~ .counter-info').html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
-  });
-  $('.gallery-carousel__big').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    // centerPadding: '40px',
-    dots: false,
-    // fade: true,
-    asNavFor: '.gallery-carousel__nav'
-  });
-  $('.gallery-carousel__nav').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    // rows: 2,
-    // slidesPerRow: 2,
-    fade: true,
-    arrows: false,
-    asNavFor: '.gallery-carousel__big',
-    dots: false,
-    centerMode: false,
-    focusOnSelect: true
-  });
-
-
 
   ///////////////////////////////////////////////////////////////////////////////////////////
   // slider for news
@@ -178,7 +191,6 @@ $(function () {
   // procedure to put divs with numbers data inside slider on mobile 
   let arrNumbersSections = document.querySelectorAll('.js-numbers');
   if (arrNumbersSections[0]) {
-    console.log(arrNumbersSections);
     let numbersSlider = document.querySelector('.numbers__slider');
     let dividers = document.querySelectorAll('.divider');
     let numbersMainTag = null;
@@ -236,15 +248,12 @@ $(function () {
           isNumbersSlider = true;
         }
         isNumbersMobile = true;
-        console.log(arrNumbersSections);
       }
       else if (window.innerWidth > 575 && isNumbersMobile == true) {
         numbersMainTag = document.querySelector('main');
-        console.log(numbersMainTag);
         let i = 0;
         arrNumbersSections.forEach(el => {
           numbersMainTag.appendChild(el);
-          console.log(el);
           if (dividers[i]) {
             dividers[i].style.removeProperty('display');
             numbersMainTag.appendChild(dividers[i]);
@@ -374,24 +383,3 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
-// console.log(arrGalleryThumbs);
-
-// let arrGalleryThumbsGroups = {};
-// let k = 0;
-// for (let i = 0; i < arrGalleryThumbs.length; i = j + 1) {
-//   for (let j = i; j < j + 4; j++) {
-//     if (arrGalleryThumbs[j]) {
-//       arrGalleryThumbsGroups[k] = {
-//         thumb[j % 4] = arrGalleryThumbs[j];
-//       }
-//     }
-//   }
-//   k++;
-// };
-//////////////////////////////////////////////////
-
-/////////////////////////////////////////////////
-
-// console.log($('.gallery-carousel__nav'));
-
-//////////////////////////////////////////////////
