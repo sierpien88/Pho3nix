@@ -1,4 +1,6 @@
 // this script functions
+
+// get current thumbnail index in array
 function getIndexWithClass(className, arr) {
   // get current thumbnail if slick is not initiated then return index 0
   for (let i = 0; i < arr.length; i++) {
@@ -8,19 +10,23 @@ function getIndexWithClass(className, arr) {
   }
   return 0;
 }
-let lastStartGroupIndex = 0;
-let speedChangeThumbsGroup = 450;
+
+let lastStartGroupIndex = 0; // previous thumbnails group start index
+let speedChangeThumbsGroup = 200; // speed of fade transition on change
 function showThumbs(arr) {
   let currentIndex = getIndexWithClass('slick-current', arr);
   let startGroupIndex = currentIndex - (currentIndex % 4);
-
+  // if other 4 thumbnails needs to be shown
   if (startGroupIndex != lastStartGroupIndex) {
     lastStartGroupIndex = startGroupIndex;
+    // hide slider when changing group thumbnails occurs
     arr[0].closest('.gallery-carousel__nav').style['opacity'] = '0';
     setTimeout(() => {
+      // hide old thumbnails group
       for (let i = 0; i < arr.length; i++) {
         arr[i].style['display'] = 'none';
       }
+      // show current thumbnails group
       for (let i = startGroupIndex; i < startGroupIndex + 4; i++) {
         if (arr[i]) {
           arr[i].style['display'] = 'block';
@@ -29,7 +35,9 @@ function showThumbs(arr) {
       }
     }, speedChangeThumbsGroup);
   }
+  // when slick slider is not initiated yet
   else {
+    // show first thumbnails group
     for (let i = startGroupIndex; i < startGroupIndex + 4; i++) {
       if (arr[i]) {
         arr[0].closest('.gallery-carousel__nav').style['opacity'] = '1';
@@ -93,8 +101,7 @@ $(function () {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 2,
-
+          slidesToShow: 2
         }
       },
       {
@@ -106,11 +113,9 @@ $(function () {
     ]
   });
   ///////////////////////////////////////////////////////////////////////////////////////////
-
   let arrGalleryThumbs = document.querySelectorAll('.gallery-carousel__nav .gallery-carousel__thumbnail');
   $('.gallery-carousel__big').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
     //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    console.log(event);
     showThumbs(arrGalleryThumbs);
     var j = (currentSlide ? currentSlide : 0) + 1;
     $('.gallery-carousel__big ~ .counter-info').html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
