@@ -64,15 +64,11 @@ for (let i = 0; i < arrGalleryBig.length; i++) {
   arrGallerySingleThumbs[navId] = i;
   $(`#${bigId}`).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
     //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    // showThumbs(arrGallerySingleThumbs[arrGallerySingleThumbs[navId]]);
     var j = (currentSlide ? currentSlide : 0) + 1;
     $(`#${bigId} ~ .counter-info`).html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
   });
   $(`#${bigId}`).on('init beforeChange', function () {
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
     showThumbs(arrGallerySingleThumbs[arrGallerySingleThumbs[navId]]);
-    // var j = (currentSlide ? currentSlide : 0) + 1;
-    // $(`#${bigId} ~ .counter-info`).html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
   });
   $(`#${bigId}`).slick({
     slidesToShow: 1,
