@@ -12,7 +12,7 @@ function getIndexWithClass(className, arr) {
 }
 
 // let lastStartGroupIndex = 0; // previous thumbnails group start index
-let speedChangeThumbsGroup = 200; // speed of fade transition on change slide
+let speedChangeThumbsGroup = 333; // speed of fade transition on change slide
 function showThumbs(arr) {
   let currentIndex = getIndexWithClass('slick-current', arr);
   let startGroupIndex = currentIndex - (currentIndex % 4);
@@ -64,9 +64,11 @@ for (let i = 0; i < arrGalleryBig.length; i++) {
   arrGallerySingleThumbs[navId] = i;
   $(`#${bigId}`).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
     //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    showThumbs(arrGallerySingleThumbs[arrGallerySingleThumbs[navId]]);
     var j = (currentSlide ? currentSlide : 0) + 1;
     $(`#${bigId} ~ .counter-info`).html('<span class="current_slide">' + j + '</span> <span class="divider">/</span> <span class="total_slides"> ' + slick.slideCount + '</span>');
+  });
+  $(`#${bigId}`).on('init beforeChange', function () {
+    showThumbs(arrGallerySingleThumbs[arrGallerySingleThumbs[navId]]);
   });
   $(`#${bigId}`).slick({
     slidesToShow: 1,
